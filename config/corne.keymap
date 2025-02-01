@@ -14,7 +14,8 @@
                     compatible = "zmk,behavior-macro";
                     #binding-cells = <0>;
                     bindings
-                        = <&macro_tap &kp LCTRL &kp DEL &kp LALT>
+                        = <&macro_press &kp LCTRL &kp DEL &kp LALT>
+                        , <&macro_release &kp LCTRL &kp DEL &kp LALT>
                         ;
                 };
         };

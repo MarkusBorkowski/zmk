@@ -9,6 +9,16 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+        macros {
+                stgr_alt_entf: stgr_alt_entf {
+                    compatible = "zmk,behavior-macro";
+                    #binding-cells = <0>;
+                    bindings
+                        = <&macro_tap &kp LCTRL &kp DEL &kp LALT>
+                        ;
+                };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
@@ -30,12 +40,12 @@
 // |  ESC |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | DEL  |
 // | DEL  | BT1 | BT2 | BT3 | BT4 |BLCLR|   |     | LFT | DWN |  UP | RGT |      |
 // | SHFT |     | F11 | F12 |     |     |   |     | Home|     |     | End |      |
-//                    | GUI |     | SPC |   | ENT |     | LALT|
+//                    | GUI |     | SPC |   | ENT |     | stgr_alt_entf|
                         bindings = <
    &kp ESC    &kp N1       &kp N2       &kp N3       &kp N4          &kp N5         &kp N6   &kp N7   &kp N8   &kp N9  &kp N0    &kp DEL
    &kp  DEL   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3    &bt BT_CLR     &trans   &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans
    &kp LSHFT  &trans       &kp F11      &kp F12      &trans          &trans         &trans   &kp HOME &trans   &trans  &kp END   &kp TILDE
-                          	        &kp LGUI     &trans          &kp SPACE      &kp RET  &trans   &kp LALT
+                          	        &kp LGUI     &trans          &kp SPACE      &kp RET  &trans   &stgr_alt_entf
                         >;
                 };
 
@@ -53,4 +63,5 @@
                         >;
                 };
         };
+      
 };
